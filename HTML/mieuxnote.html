@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Inclusion de la bibliothèque AOS pour les animations au scroll -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>CinePhile - Les Mieux Notés</title>
+    
+    <!-- Icône du site affichée dans l'onglet du navigateur -->
+    <link rel="icon" type="image/png" href="../Images/logo-transparent.png">
+    
+    <!-- Inclusion de Bootstrap pour le style et la mise en page responsive -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Fichier CSS personnalisé -->
+    <link rel="stylesheet" href="../CSS/styles.css">
+</head>
+<body>
+
+    <!-- Barre de navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> 
+        <div class="container d-flex justify-content-between align-items-center">
+            
+            <!-- Bouton pour ouvrir le menu latéral (offcanvas) -->
+            <button class="btn btn-site" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuOffcanvas">
+                ☰ Menu
+            </button>
+            
+            <!-- Formulaire de recherche de film -->
+            <form class="d-flex" id="search-form">
+                <input class="form-control me-2" type="search" id="search-input" placeholder="Rechercher un film..." aria-label="Search">
+                <button class="btn btn-site" type="submit">Recherche</button>
+            </form> 
+        </div>
+    </nav>
+    
+    <!-- Menu latéral (offcanvas) qui s'affiche en cliquant sur "☰ Menu" -->
+    <div class="offcanvas offcanvas-start bg-dark text-white" id="menuOffcanvas">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Menu</h5>
+            
+            <!-- Bouton pour fermer le menu -->
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Liens vers différentes sections du site -->
+            <ul class="list-unstyled">
+                <li><a class="nav-link text-white" href="index.html">Accueil</a></li>
+                <li><a class="nav-link text-white" href="tendances.html">🔥 Tendances</a></li>
+                <li><a class="nav-link text-white" href="mieuxnote.html">⭐ Les Mieux Notés</a></li>
+                <li><a class="nav-link text-white" href="derniersfilms.html">🎬 Derniers Films Sortis</a></li>
+                <li><a class="nav-link text-white" href="filmsavenir.html">📅 Films à Venir</a></li>
+                <li><a class="nav-link text-white" href="series.html">📺 Séries TV</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Contenu principal de la page -->
+    <div class="container mt-5 text-center">
+        <!-- Image d'accueil (bannière) -->
+        <img src="../Images/Image4.png" class="accueil-image" alt="Image d'accueil" data-aos="zoom-out" data-aos-duration="3000">
+    </div>
+
+    <!-- Section affichant les films les mieux notés -->
+    <div class="container mt-5">
+        <div id="top-rated-container" class="row" data-aos="flip-left" data-aos-duration="3000">
+            <!-- Les films les mieux notés seront ajoutés dynamiquement avec JavaScript -->
+        </div>
+        <div id="error-message" class="d-none mt-4 text-center"> 
+            <img src="../Images/Image1.2.png" alt="Erreur" >
+        </div> <!-- d-none cache l’élément par défaut-->       
+    </div> 
+
+    <!-- Inclusion des scripts -->
+    <script src="../JAVA/cle.js"></script>  <!-- Contient la clé API -->
+
+    <!-- Bootstrap JS pour les fonctionnalités interactives -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Script pour charger les films les mieux notés -->
+    <script src="../JAVA/mieuxnote.js"></script>
+    
+    <!-- Script pour gérer la recherche -->
+    <script src="../JAVA/films.js"></script>
+
+    <!-- Footer -->
+    <footer>
+        <center><p>&copy; 2025 CinePhile, Lahcen IDLAHCEN & Nihad BOUBETRA</p></center>
+    </footer>
+
+    <!-- Script pour initialiser AOS (Animations au scroll) -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+</body>
+</html>

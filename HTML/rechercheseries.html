@@ -1,0 +1,97 @@
+<!DOCTYPE html>  <!-- Indique que ce document est un fichier HTML5 -->
+
+<html lang="fr">  <!-- Définit la langue du document en français -->
+
+<head>
+    <!-- Inclusion du fichier CSS pour les animations AOS (Animate On Scroll) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+
+    <!-- Définition de l'encodage en UTF-8 pour supporter les caractères spéciaux -->
+    <meta charset="UTF-8">
+
+    <!-- Configuration du viewport pour un affichage responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Titre de la page affiché dans l'onglet du navigateur -->
+    <title>Résultats de Recherche</title>
+
+    <!-- Définition de l'icône du site (favicon) -->
+    <link rel="icon" type="image/png" href="../Images/logo-transparent.png">
+
+    <!-- Inclusion du CSS de Bootstrap pour la mise en page -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Inclusion du fichier CSS personnalisé -->
+    <link rel="stylesheet" href="../CSS/styles.css">
+</head>
+
+<body>
+    <!-- Navbar (barre de navigation en haut de la page) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container d-flex justify-content-between align-items-center">
+            <!-- Bouton pour ouvrir le menu latéral (offcanvas) -->
+            <button class="btn btn-site" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuOffcanvas">☰ Menu</button>
+
+            <!-- Formulaire de recherche de séries -->
+            <form class="d-flex" id="search-form">
+                <input class="form-control me-2" type="search" id="search-input" placeholder="Rechercher une série..." aria-label="Search">
+                <button class="btn btn-site" type="submit">Recherche</button>
+            </form> 
+        </div>
+    </nav>
+
+    <!-- Menu latéral (offcanvas) qui s'affiche quand on clique sur le bouton Menu -->
+    <div class="offcanvas offcanvas-start bg-dark text-white" id="menuOffcanvas">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Menu</h5>
+            <!-- Bouton pour fermer le menu latéral -->
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Liens vers différentes sections du site -->
+            <ul class="list-unstyled">
+                <li><a class="nav-link text-white" href="index.html">Accueil</a></li>
+                <li><a class="nav-link text-white" href="tendances.html">🔥 Tendances</a></li>
+                <li><a class="nav-link text-white" href="mieuxnote.html">⭐ Les Mieux Notés</a></li>
+                <li><a class="nav-link text-white" href="derniersfilms.html">🎬 Derniers Films Sortis</a></li>
+                <li><a class="nav-link text-white" href="filmsavenir.html">📅 Films à Venir</a></li>
+                <li><a class="nav-link text-white" href="series.html">📺 Séries TV</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Contenu principal -->
+    <div class="container mt-5 text-center">
+        <!-- Image d'accueil affichée avec animation AOS -->
+        <img src="../Images/Image8.png" class="accueil-image" alt="Image d'accueil" data-aos="zoom-out" data-aos-duration="3000">
+    </div>
+
+    <div class="container mt-5">
+        <!-- Section où s'afficheront les résultats de la recherche -->
+        <div id="search-series" class="row" data-aos="fade-down-right" data-aos-duration="3000">
+            <!-- Résultats des séries affichés ici -->
+        </div>
+        <div id="error-message" class="d-none mt-4 text-center"> 
+            <img src="../Images/Image1.8.png" alt="Erreur" >
+        </div> <!-- d-none cache l’élément par défaut--> 
+    </div>
+
+    <!-- Scripts JavaScript -->
+    <script src="../JAVA/cle.js"></script>  <!-- Contient probablement la clé API pour TMDb -->
+    <script src="../JAVA/series.js"></script>  <!-- Script gérant les séries -->
+    <script src="../JAVA/rechercheseries.js"></script>  <!-- Script pour charger les résultats de recherche -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>  <!-- Bootstrap JS -->
+
+    <!-- Pied de page avec les crédits -->
+    <footer>
+        <center><p>&copy; 2025 CinePhile, Lahcen IDLAHCEN & Nihad BOUBETRA</p></center>
+    </footer>
+
+    <!-- Inclusion et initialisation des animations AOS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();  <!-- Active AOS pour les animations au scroll -->
+    </script>
+
+</body>
+</html>

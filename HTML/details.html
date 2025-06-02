@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+     <!-- Inclusion de la bibliothèque AOS pour les animations au scroll -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>CinePhile - Détails du Film</title>
+    
+    <!-- Icône du site affichée dans l'onglet du navigateur -->
+    <link rel="icon" type="image/png" href="../Images/logo-transparent.png">
+
+    <!-- Inclusion de Bootstrap pour le style et la mise en page responsive -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Fichier CSS personnalisé -->
+    <link rel="stylesheet" href="../CSS/styles.css">
+</head>
+<body>
+    <div id="error-page" class="text-center d-none mt-5">
+        <img src="../Images/Image1.7.png" alt="Erreur">
+    </div>  
+
+  <!-- Navbar avec menu et recherche -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> 
+    <div class="container d-flex justify-content-between align-items-center">
+        
+        <!-- Bouton pour ouvrir le menu latéral (offcanvas) -->
+        <button class="btn btn-site" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuOffcanvas">
+            ☰ Menu
+        </button>
+
+
+        <!-- Formulaire de recherche de film -->
+        <form class="d-flex" id="search-form">
+            <input class="form-control me-2" type="search" id="search-input" placeholder="Rechercher un film..." aria-label="Search">
+            <button class="btn btn-site" type="submit">Recherche</button>
+        </form> 
+    </div>
+  </nav>
+
+
+  <!-- Menu latéral (offcanvas) qui s'affiche en cliquant sur "☰ Menu" -->
+  <div class="offcanvas offcanvas-start bg-dark text-white" id="menuOffcanvas">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Menu</h5>
+        
+        <!-- Bouton pour fermer le menu -->
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+        <!-- Liens vers différentes sections du site -->
+        <ul class="list-unstyled">
+            <li><a class="nav-link text-white" href="index.html">Accueil</a></li>
+            <li><a class="nav-link text-white" href="tendances.html">🔥 Tendances</a></li>
+            <li><a class="nav-link text-white" href="mieuxnote.html">⭐ Les Mieux Notés</a></li>
+            <li><a class="nav-link text-white" href="derniersfilms.html">🎬 Derniers Films Sortis</a></li>
+            <li><a class="nav-link text-white" href="filmsavenir.html">📅 Films à Venir</a></li>
+            <li><a class="nav-link text-white" href="series.html">📺 Séries TV</a></li>
+        </ul>
+    </div>
+  </div>
+
+  <!-- Contenu principal de la page -->
+  <div id="principal" class="container mt-5">
+      
+      <!-- Bouton permettant de revenir à la page précédente -->
+      <button class="btn btn-neon mt-4" data-aos="fade-down" data-aos-duration="3000" onclick="history.back()">⬅ Retour</button>    
+
+      <!-- Titre du film (sera rempli dynamiquement avec JavaScript) -->
+      <h1 class="text-center mt-4" id="movie-title" data-aos="fade-down" data-aos-duration="3000"></h1>
+
+      <div class="row mt-4">
+          <!-- Colonne pour l'affiche du film -->
+          <div class="col-md-4">
+              <img id="movie-poster" class="img-fluid rounded shadow-lg" src="" alt="Affiche du film" data-aos="zoom-in-down" data-aos-duration="3000">
+          </div>
+
+          <!-- Colonne pour les détails du film -->
+          <div class="col-md-8">
+
+              <!-- Carte affichant la date de sortie -->
+              <div class="card bg-dark text-white p-3" data-aos="fade-up-right" data-aos-duration="3000">
+                  <h4>Date de sortie : <span id="release-date"></span></h4>
+              </div>
+
+              <!-- Carte affichant le synopsis -->
+              <div class="card bg-dark text-white p-3 mt-3" data-aos="fade-up-left" data-aos-duration="3000">
+                  <h4>📜 Synopsis :</h4>
+                  <p id="movie-overview"></p>
+              </div>
+
+              <!-- Carte affichant les acteurs principaux -->
+              <div class="card bg-dark text-white p-3 mt-3" data-aos="fade-up-right" data-aos-duration="3000">
+                  <h4>🎭 Acteurs Principaux :</h4>
+                  <div id="actors-container" class="row">
+                      <!-- Les acteurs seront ajoutés dynamiquement avec JavaScript -->
+                  </div>
+              </div>
+
+              <!-- Carte affichant la bande-annonce -->
+              <div class="card bg-dark text-white p-3 mt-3" data-aos="fade-up-left" data-aos-duration="3000">
+                  <h4>🎬 Bande-annonce :</h4>
+                  <div id="movie-trailer"></div>
+              </div>
+
+              <!-- Carte affichant la note et les avis des spectateurs -->
+              <div class="card bg-dark text-white p-3 mt-3" data-aos="fade-up-right" data-aos-duration="3000">
+                  <h4>⭐ Note et Avis des Spectateurs</h4>
+                  <p><strong>Note Moyenne :</strong> <span id="movie-rating"></span>/10</p>
+                  <div id="reviews-container">
+                      <h5>💬 Avis :</h5>
+                      <ul id="reviews-list" class="list-group"></ul>
+                  </div>
+              </div>
+
+              <!-- Carte affichant où regarder le film (plateformes de streaming) -->
+              <div class="card bg-dark text-white p-3 mt-3" data-aos="fade-up-left" data-aos-duration="3000">
+                  <h4>📺 Où regarder ce film ?</h4>
+                  <div id="watch-providers" class="row">
+                      <!-- Les plateformes seront ajoutées dynamiquement avec JavaScript -->
+                  </div>
+              </div>
+
+          </div>
+      </div>
+
+      <!-- Deuxième bouton retour pour la navigation -->
+      <button class="btn btn-neon mt-4" data-aos="fade-down" data-aos-duration="3000" onclick="history.back()">⬅ Retour</button>  
+  </div>
+
+  <!-- Inclusion des scripts -->
+  <script src="../JAVA/cle.js"></script>  <!-- Contient la clé API -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../JAVA/details.js"></script> <!-- Gère l'affichage des détails du film -->
+  <script src="../JAVA/films.js"></script> <!-- Gère la recherche de cette page -->
+
+  <!-- Footer -->
+  <footer>
+      <center><p>&copy; 2025 CinePhile, Lahcen IDLAHCEN & Nihad BOUBETRA</p></center>
+  </footer>
+
+  <!-- Script pour initialiser AOS (Animations au scroll) -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+      AOS.init();
+  </script>
+
+</body>
+</html>

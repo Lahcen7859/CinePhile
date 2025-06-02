@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+     <!-- Inclusion de la bibliothèque AOS (Animate On Scroll) pour les animations au défilement -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+
+    <meta charset="UTF-8"> <!-- Définit l'encodage des caractères en UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Permet l'adaptation sur mobiles -->
+    
+    <title>CinePhile - Séries TV</title> <!-- Titre de la page affiché dans l'onglet du navigateur -->
+    <link rel="icon" type="image/png" href="../Images/logo-transparent.png"> <!-- Icône de la page (favicon) -->
+
+    <!-- Intégration de Bootstrap via un CDN pour styliser la page -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../CSS/styles.css"> <!-- Inclusion du fichier CSS personnalisé -->
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container d-flex justify-content-between align-items-center">
+            <!-- Bouton pour ouvrir le menu latéral (Offcanvas) -->
+            <button class="btn btn-site" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuOffcanvas">☰ Menu</button>
+
+            <!-- Formulaire de recherche pour trouver des séries -->
+            <form class="d-flex" id="search-form">
+                <input class="form-control me-2" type="search" id="search-input" placeholder="Rechercher une série..." aria-label="Search">
+                <button class="btn btn-site" type="submit">Recherche</button>
+            </form>            
+        </div>
+    </nav>
+
+    <!-- Menu latéral (Offcanvas) -->
+    <div class="offcanvas offcanvas-start bg-dark text-white" id="menuOffcanvas">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Menu</h5>
+            <!-- Bouton pour fermer le menu -->
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Liste des différentes sections du site -->
+            <ul class="list-unstyled">
+                <li><a class="nav-link text-white" href="index.html"> Accueil</a></li>
+                <li><a class="nav-link text-white" href="tendances.html">🔥 Tendances</a></li>
+                <li><a class="nav-link text-white" href="mieuxnote.html">⭐ Les Mieux Notés</a></li>
+                <li><a class="nav-link text-white" href="derniersfilms.html">🎬 Derniers Films Sortis</a></li>
+                <li><a class="nav-link text-white" href="filmsavenir.html">📅 Films à Venir</a></li>
+                <li><a class="nav-link text-white" href="series.html">📺 Séries TV</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Image d'accueil avec animation -->
+    <div class="container mt-5 text-center">
+        <img src="../Images/Image2.png" class="accueil-image" alt="Image d'accueil" data-aos="zoom-out" data-aos-duration="3000">
+    </div>
+
+    <!-- Sections principales avec des séries -->
+    <div class="container mt-5 pt-5">
+        
+        <!-- Section Séries Populaires -->
+        <section class="mt-5">
+            <h2 class="text-center" data-aos="fade-left" data-aos-duration="3000">🌟 Séries Populaires</h2>
+            <div id="popular-series" class="row" data-aos="fade-up" data-aos-duration="3000"></div>
+        </section>
+
+        <!-- Section Séries Tendances -->
+        <section class="mt-5">
+            <h2 class="text-center" data-aos="fade-left" data-aos-duration="3000">🔥 Séries Tendances</h2>
+            <div id="trending-series" class="row" data-aos="fade-up" data-aos-duration="3000"></div>
+        </section>
+
+        <!-- Section Séries Mieux Notées -->
+        <section class="mt-5">
+            <h2 class="text-center" data-aos="fade-left" data-aos-duration="3000">🏆 Séries Mieux Notées</h2>
+            <div id="top-rated-series" class="row" data-aos="fade-up" data-aos-duration="3000"></div>
+        </section>
+
+        <!-- Section Séries en Cours de Diffusion -->
+        <section class="mt-5">
+            <h2 class="text-center" data-aos="fade-left" data-aos-duration="3000">📅 Séries en Cours de Diffusion</h2>
+            <div id="on-air-series" class="row" data-aos="fade-up" data-aos-duration="3000"></div>
+        </section>
+    </div>
+    
+    <!-- Inclusion des scripts nécessaires -->
+    <script src="../JAVA/cle.js"></script> <!-- Fichier contenant l'API key  -->
+    <script src="../JAVA/series.js"></script> <!-- Fichier qui gère l'affichage des séries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> <!-- Scripts Bootstrap -->
+
+    <!-- Pied de page -->
+    <footer>
+        <center><p>&copy; 2025 CinePhile, Lahcen IDLAHCEN & Nihad BOUBETRA</p></center>
+    </footer>
+    
+    <!-- Script pour initialiser AOS (animations) -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init(); // Active les animations au défilement
+    </script>
+
+</body>
+</html>

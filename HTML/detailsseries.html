@@ -1,0 +1,145 @@
+<!DOCTYPE html>  <!-- Indique que ce document est un fichier HTML5 -->
+
+<html lang="fr">  <!-- Définit la langue du document en français -->
+
+<head>
+    <!-- Inclusion du fichier CSS pour les animations AOS (Animate On Scroll) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+
+    <!-- Définition de l'encodage en UTF-8 pour supporter les caractères spéciaux -->
+    <meta charset="UTF-8">
+
+    <!-- Configuration du viewport pour un affichage responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Titre de la page affiché dans l'onglet du navigateur -->
+    <title>CinePhile - Détails de la Série</title>
+
+    <!-- Définition de l'icône du site (favicon) -->
+    <link rel="icon" type="image/png" href="../Images/logo-transparent.png">
+
+    <!-- Inclusion du CSS de Bootstrap pour la mise en page -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Inclusion du fichier CSS personnalisé -->
+    <link rel="stylesheet" href="../CSS/styles.css">
+</head>
+
+<body>
+    <div id="error-page2" class="text-center d-none mt-5">
+        <img src="../Images/Image1.7.png" alt="Erreur">
+    </div>  
+
+    <!-- Navbar (barre de navigation en haut de la page) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container d-flex justify-content-between align-items-center">
+            <!-- Bouton pour ouvrir le menu latéral (offcanvas) -->
+            <button class="btn btn-site" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuOffcanvas">☰ Menu</button>
+
+            <!-- Formulaire de recherche de séries -->
+            <form class="d-flex" id="search-form">
+                <input class="form-control me-2" type="search" id="search-input" placeholder="Rechercher une série..." aria-label="Search">
+                <button class="btn btn-site" type="submit">Recherche</button>
+            </form> 
+        </div>
+    </nav>
+
+    <!-- Menu latéral (offcanvas) qui s'affiche quand on clique sur le bouton Menu -->
+    <div class="offcanvas offcanvas-start bg-dark text-white" id="menuOffcanvas">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Menu</h5>
+            <!-- Bouton pour fermer le menu latéral -->
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Liens vers différentes sections du site -->
+            <ul class="list-unstyled">
+                <li><a class="nav-link text-white" href="index.html">Accueil</a></li>
+                <li><a class="nav-link text-white" href="tendances.html">🔥 Tendances</a></li>
+                <li><a class="nav-link text-white" href="mieuxnote.html">⭐ Les Mieux Notés</a></li>
+                <li><a class="nav-link text-white" href="derniersfilms.html">🎬 Derniers Films Sortis</a></li>
+                <li><a class="nav-link text-white" href="filmsavenir.html">📅 Films à Venir</a></li>
+                <li><a class="nav-link text-white" href="series.html">📺 Séries TV</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Contenu principal de la page -->
+    <div id="principal2" class="container mt-5">
+
+        <!-- Bouton pour revenir en arrière -->
+        <button class="btn btn-neon mt-4" data-aos="fade-down" data-aos-duration="3000" onclick="history.back()">⬅ Retour</button>
+
+        <!-- Titre de la série, rempli dynamiquement avec JavaScript -->
+        <h1 class="text-center mt-4" id="series-title" data-aos="fade-down" data-aos-duration="3000"></h1>
+
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <!-- Affiche de la série (image remplie dynamiquement) -->
+                <img id="series-poster" class="img-fluid rounded shadow-lg" src="" alt="Affiche de la série" data-aos="zoom-in-down" data-aos-duration="3000">
+            </div>
+            <div class="col-md-8">
+                <!-- Carte contenant les infos de la série (date, saisons, épisodes) -->
+                <div class="card bg-dark text-white p-3" data-aos="fade-up-right" data-aos-duration="3000">
+                    <h4>Date de première diffusion : <span id="first-air-date"></span></h4>
+                    <h4>Nombre de saisons : <span id="seasons"></span></h4>
+                    <h4>Nombre d'épisodes : <span id="episodes"></span></h4>
+                </div>
+
+                <!-- Section du synopsis -->
+                <div class="card bg-dark text-white p-3 mt-3" data-aos="fade-up-left" data-aos-duration="3000">
+                    <h4>📜 Synopsis :</h4>
+                    <p id="series-overview"></p>
+                </div>
+
+                <!-- Section affichant les acteurs principaux -->
+                <div class="card bg-dark text-white p-3 mt-3" data-aos="fade-up-right" data-aos-duration="3000">
+                    <h4>🎭 Acteurs Principaux :</h4>
+                    <div id="actors-container" class="row"></div>
+                </div>
+
+                <!-- Bande-annonce de la série -->
+                <div class="card bg-dark text-white p-3 mt-3" data-aos="fade-up-left" data-aos-duration="3000">
+                    <h4>🎬 Bande-annonce :</h4>
+                    <div id="series-trailer"></div>
+                </div>
+
+                <!-- Section des avis et notes des spectateurs -->
+                <div class="card bg-dark text-white p-3 mt-3" data-aos="fade-up-right" data-aos-duration="3000">
+                    <h4>⭐ Note et Avis des Spectateurs</h4>
+                    <p><strong>Note Moyenne:</strong> <span id="series-rating"></span>/10</p>
+                    <h5>💬 Avis :</h5>
+                    <ul id="reviews-list" class="list-group"></ul>
+                </div>
+
+                <!-- Section des plateformes où regarder la série -->
+                <div class="card bg-dark text-white p-3 mt-3" data-aos="fade-up-left" data-aos-duration="3000">
+                    <h4>📺 Où regarder cette série ?</h4>
+                    <div id="watch-providers" class="row"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Deuxième bouton pour revenir en arrière -->
+        <button class="btn btn-neon mt-4" data-aos="fade-up-right" data-aos-duration="3000" onclick="history.back()">⬅ Retour</button>  
+    </div>
+
+    <!-- Scripts JavaScript -->
+    <script src="../JAVA/cle.js"></script>  <!-- Contient la clé API pour TMDb -->
+    <script src="../JAVA/series.js"></script>  <!-- Script gérant les séries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>  <!-- Bootstrap JS -->
+    <script src="../JAVA/detailsseries.js"></script>  <!-- Script pour charger les détails de la série -->
+
+    <!-- Pied de page avec les crédits -->
+    <footer>
+        <center><p>&copy; 2025 CinePhile, Lahcen IDLAHCEN & Nihad BOUBETRA</p></center>
+    </footer>
+
+    <!-- Initialisation des animations AOS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();  <!-- Active AOS pour les animations au scroll -->
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,155 @@
+/* Styles généraux pour un thème sombre cinéma */
+body {
+  background-color: #121212; /* Fond sombre */
+  color: #ffffff; /* Texte blanc */
+  font-family: 'Poppins', sans-serif; /* Police moderne et élégante */
+  padding-top: 150px; /* Ajoute un espace en haut pour éviter que le contenu soit caché par la navbar */
+}
+
+/* ---------- NAVBAR ---------- */
+.navbar {
+  background: linear-gradient(90deg, #000000, #1c1c1c); /* Dégradé de noir pour un effet élégant */
+  padding: 5px 10px; /* Réduit l'espace interne pour un design plus compact */
+  box-shadow: 0 4px 8px rgba(255, 0, 0, 0.2); /* Ombre rouge subtile pour une ambiance cinéma */
+  position: fixed; /* Fixe la navbar en haut de l'écran */
+  top: 0; /* La place tout en haut */
+  height: 120px; /* Hauteur réduite pour ne pas prendre trop de place */
+  min-height: 50px; /* Empêche Bootstrap d'ajouter une hauteur par défaut */
+  width: 100%; /* Occupe toute la largeur de l'écran */
+  z-index: 1050; /* S'assure que la navbar est toujours au-dessus du reste du contenu */
+}
+
+.navbar-brand {
+  position: relative;
+  left: 85px; /* Déplace le logo vers la droite pour l'aligner avec le reste */
+}
+
+/* ---------- IMAGE D'ACCUEIL ---------- */
+.accueil-image {
+  max-width: 60%; /* Limite la taille de l'image */
+  max-height: 300px; /* Hauteur maximale */
+  display: block;
+  margin: 0 auto; /* Centre l'image horizontalement */
+  border-radius: 10px; /* Arrondi les coins */
+}
+
+/* ---------- BOUTONS (recherche et menu) ---------- */
+.btn-site {
+  border-color: #ff0000; /* Bordure rouge */
+  color: #ff0000; /* Texte rouge */
+}
+
+.btn-site:hover {
+  background-color: #ff0000; /* Fond rouge au survol */
+  color: #ffffff; /* Texte blanc */
+}
+
+/* ---------- CARTES DE FILMS ---------- */
+.card {
+  background-color: #222; /* Fond gris foncé pour s'harmoniser avec le thème sombre */
+  border: none; /* Supprime les bordures par défaut */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Animation fluide */
+}
+
+.card:hover {
+  transform: scale(1.05); /* Agrandit légèrement la carte au survol */
+  box-shadow: 0 10px 20px rgba(255, 0, 0, 0.5); /* Ombre rouge pour l'effet cinématographique */
+}
+
+/* ---------- TITRES DE SECTIONS ---------- */
+h2 {
+  color: #ff0000; /* Texte rouge pour rappeler le style cinéma */
+  text-shadow: 2px 2px 4px rgba(255, 0, 0, 0.5); /* Effet lumineux */
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  background-color: #1c1c1c; /* Fond gris foncé */
+  padding: 15px; /* Espace intérieur */
+  text-align: center; /* Centre le texte */
+  margin-top: 50px; /* Ajoute un espace avant le footer */
+  color: #ffffff; /* Texte blanc */
+}
+
+/* ---------- MENU LATERAL (offcanvas) ---------- */
+.offcanvas {
+  background: linear-gradient(145deg, #111, #000); /* Dégradé noir luisant */
+  box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.8); /* Effet de lueur rouge */
+  border-right: 2px solid rgba(255, 0, 0, 0.5); /* Bordure lumineuse */
+  z-index: 1050; /* S'assure que le menu est bien visible */
+}
+
+/* ---------- TITRE DU MENU ---------- */
+.offcanvas-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ff4444; /* Rouge intense pour un effet dramatique */
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(255, 68, 68, 0.8); /* Effet néon */
+}
+
+/* ---------- LIENS DU MENU ---------- */
+.offcanvas-body .nav-link {
+  font-size: 1.2rem;
+  padding: 10px;
+  border-radius: 5px;
+  color: #ffffff;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+
+/* Effet néon rouge au survol */
+.offcanvas-body .nav-link:hover {
+  background: linear-gradient(90deg, #8b0000, #ff0000);
+  color: white !important;
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+}
+
+/* ---------- BOUTON STYLE NÉON ---------- */
+.btn-neon {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+  background-color: #ff0000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-shadow: 0 0 5px #ff4d4d, 0 0 10px #ff0000, 0 0 15px #ff4d4d;
+  box-shadow: 0 0 5px #ff4d4d, 0 0 10px #ff0000, 0 0 15px #ff4d4d;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-neon:hover {
+  background-color: #d40000;
+  text-shadow: 0 0 10px #ff4d4d, 0 0 20px #ff0000, 0 0 30px #ff4d4d;
+  box-shadow: 0 0 10px #ff4d4d, 0 0 20px #ff0000, 0 0 30px #ff4d4d;
+  transform: scale(1.1);
+}
+
+/* ---------- CARTES FILMS (mode sombre) ---------- */
+.card.bg-dark {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+/* ---------- TITRE ET IMAGE D'UN FILM ---------- */
+#movie-title, #series-title {
+  font-size: 2.5rem; /* Augmente la taille */
+  font-weight: bold; /* Texte en gras */
+  color: rgba(255, 0, 0, 0.5); /* Rouge sombre */
+  text-transform: uppercase; /* Majuscules */
+  text-shadow: 2px 2px 8px rgba(255, 0, 0, 0.5); /* Effet de lumière */
+  text-align: center; /* Centre le texte */
+  letter-spacing: 2px; /* Espacement entre les lettres */
+  margin-bottom: 20px; /* Ajoute un espace sous le titre */
+}
+
+#movie-poster, #series-poster {
+  max-width: 100%; /* Pour s'adapter à la colonne */
+  border-radius: 10px; /* Coins arrondis */
+  border: 3px solid rgba(255, 0, 0, 0.5); /* Bordure subtile */
+}
+
+

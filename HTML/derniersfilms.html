@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Inclusion de la bibliothèque AOS pour les animations au défilement -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+
+    <!-- Définition de l'encodage des caractères -->
+    <meta charset="UTF-8">
+    
+    <!-- Configuration de l'affichage responsive pour les mobiles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Titre de la page affiché dans l'onglet du navigateur -->
+    <title>CinePhile - Derniers Films Sortis</title>
+    
+    <!-- Favicon (icône affichée dans l'onglet du navigateur) -->
+    <link rel="icon" type="image/png" href="../Images/logo-transparent.png">
+    
+    <!-- Intégration du framework CSS Bootstrap pour un design responsive -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Inclusion du fichier CSS personnalisé pour adapter le style du site -->
+    <link rel="stylesheet" href="../CSS/styles.css">
+</head>
+<body>
+
+    <!-- Barre de navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> 
+        <div class="container d-flex justify-content-between align-items-center">
+            <!-- Bouton pour afficher le menu latéral (offcanvas) -->
+            <button class="btn btn-site" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuOffcanvas">
+                ☰ Menu
+            </button>
+    
+    
+            <!-- Formulaire de recherche situé à droite -->
+            <form class="d-flex" id="search-form">
+                <input class="form-control me-2" type="search" id="search-input" placeholder="Rechercher un film..." aria-label="Search">
+                <button class="btn btn-site" type="submit">Recherche</button>
+            </form> 
+        </div>
+    </nav>
+    
+    <!-- Menu latéral Offcanvas (s'affiche lorsqu'on clique sur "☰ Menu") -->
+    <div class="offcanvas offcanvas-start bg-dark text-white" id="menuOffcanvas">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Menu</h5>
+            <!-- Bouton pour fermer le menu -->
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Liens de navigation vers différentes sections du site -->
+            <ul class="list-unstyled">
+                <li><a class="nav-link text-white" href="index.html">Accueil</a></li>
+                <li><a class="nav-link text-white" href="tendances.html">🔥 Tendances</a></li>
+                <li><a class="nav-link text-white" href="mieuxnote.html">⭐ Les Mieux Notés</a></li>
+                <li><a class="nav-link text-white" href="derniersfilms.html">🎬 Derniers Films Sortis</a></li>
+                <li><a class="nav-link text-white" href="filmsavenir.html">📅 Films à Venir</a></li>
+                <li><a class="nav-link text-white" href="series.html">📺 Séries TV</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Contenu principal : une image d'accueil animée -->
+    <div class="container mt-5 text-center">
+        <img src="../Images/Image5.png" class="accueil-image" alt="Image d'accueil" data-aos="zoom-out" data-aos-duration="3000">
+    </div>
+
+    <!-- Conteneur pour afficher les derniers films sortis -->
+    <div class="container mt-5">
+        <div id="now-playing-container" class="row" data-aos="zoom-in-up" data-aos-duration="3000">
+            <!-- Les films seront affichés ici via JavaScript -->
+        </div>
+        <div id="error-message" class="d-none mt-4 text-center"> 
+            <img src="../Images/Image1.5.png" alt="Erreur" >
+        </div> <!-- d-none cache l’élément par défaut-->       
+    </div> 
+
+    <!-- Inclusion de Bootstrap JS pour gérer les composants interactifs -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Inclusion du fichier contenant la clé API (cle.js) -->
+    <script src="../JAVA/cle.js"></script> 
+    
+    <!-- Inclusion des scripts JavaScript pour gérer l'affichage des derniers films -->
+    <script src="../JAVA/derniersfilms.js"></script>
+    <script src="../JAVA/films.js"></script>
+
+    <!-- Pied de page -->
+    <footer>
+        <center><p>&copy; 2025 CinePhile, Lahcen IDLAHCEN & Nihad BOUBETRA</p></center>
+    </footer>
+
+    <!-- Inclusion de la bibliothèque AOS pour les animations -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        // Initialisation de AOS pour activer les animations
+        AOS.init();
+    </script>
+
+</body>
+</html>
