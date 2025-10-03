@@ -46,11 +46,11 @@ Utilisé un navigateur web moderne (Google Chrome, Firefox,...). Firefox de pré
 ```
 2. Ouvrez un Terminal
 
-3. Déplacez- vous dans le répertoire JAVA (cd "nom du chemin d'accès")
+3. Déplacez- vous dans le répertoire JAVA : cd "nom du chemin d'accès du répertoir JAVA" (pour cela vous pouvez faire clique droit sur le fichier JAVA et copier en tant que chemin d'accès)
 
 4. Entrez cette commande : node server.js
 
-5. Un lien vers le serveur du site s'affichera. Ouvrez le dans un navigateur.
+5. Un lien vers le serveur du site s'affichera. Ouvrez le dans un navigateur. (ctrl + clic sur le lien)
     
 ## Auteurs
 
