@@ -35,7 +35,7 @@ app.get('/api/tendances', (req, res) => {
         }
     ];
 
-    res.json({ resultas: filmsTendances }); // Répond à la requête en envoyant les films au format JSON (format similaire à TMDB)
+    res.json({ results: filmsTendances }); // Répond à la requête en envoyant les films au format JSON (format similaire à TMDB)
 });
 
 //Démarre le serveur sur le port 3000 et affiche un message dans le terminal
